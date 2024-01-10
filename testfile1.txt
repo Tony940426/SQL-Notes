@@ -16,6 +16,9 @@ SELECT DISTINCT(column)FROM table_name
 Answer: SELECT DISTINCT (rating) FROM film;
 ----Challenge Two End---
 
-COUNT function returns the number of input rows that match a specific condition
+COUNT() function returns the number of input rows that match a specific condition
 We can apply COUNT(colum_name) on a specific column or COUNT(*)
 SELECT COUNT (DISTINCT name) FROM table
+
+WHERE statement allows us to specify conditions
+AND, OR, NOT are the logical operators 
