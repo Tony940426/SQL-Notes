@@ -1,1 +1,9 @@
-This is a text string.
+---BASIC SQL Fundamentals---
+SELECT Statement is the most basic Statement
+SELECT 'column_name' FROM 'table_name'
+eg SELECT C1, C2 FROM 'table_name'
+eg SELECT * FROM 'table_name'
+***it is not a good practice to use a (*)
+
+---Challenge One: SELECT---
+Answer: SELECT first_name, last_name, email FROM customer;
