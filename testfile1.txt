@@ -21,4 +21,17 @@ We can apply COUNT(colum_name) on a specific column or COUNT(*)
 SELECT COUNT (DISTINCT name) FROM table
 
 WHERE statement allows us to specify conditions
-AND, OR, NOT are the logical operators 
+AND, OR, NOT are the logical operators
+
+---Challenge Three: WHERE---
+1: SELECT email FROM customer
+    WHERE first_name = 'Nancy' 
+    AND last_name = 'Thomas';
+
+2: SELECT description FROM film
+    WHERE title = 'Outlaw Hanky';
+
+3: SELECT * FROM address
+    WHERE address = '259 Ipoh Drive'
+---Challenge Three End---
+
