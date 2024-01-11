@@ -35,3 +35,30 @@ AND, OR, NOT are the logical operators
     WHERE address = '259 Ipoh Drive'
 ---Challenge Three End---
 
+ORDER BY is towards the end of a query. We want to do any selections first before sorting
+SELECT column_1, column_2
+FROM table
+ORDER BY column_1 ASC/DESC
+***ORDER BY uses ASC by default
+eg SELECT store_id, first_name, last_name FROM customer
+    ORDER BY store_id DESC, first_name ASC;
+
+LIMIT command allows us to limit the number of rows returned for a query.
+LIMIT goes at the very end of a query request and is the last command to be executed
+
+---Challenge Four: ORDER BY and LIMIT---
+1: SELECT customer_id FROM payment
+ORDER BY payment_date 
+LIMIT 10
+
+2: SELECT title, length FROM film
+ORDER BY length
+LIMIT 5
+
+3: SELECT title FROM film
+ORDER BY length
+LIMIT 5
+
+4: SELECT COUNT(*) FROM film
+WHERE length <= 50
+---Challenge Four End---
