@@ -99,3 +99,91 @@ AND replacement_cost BETWEEN 5 AND 15 ;
 6: SELECT COUNT(*) FROM film
 WHERE title iLIKE '%Truman%'
 --Challenge Five End---
+
+---SECTION 3: GROUP BY---
+
+Aggregate function is to take multiple inputs and return a single ouput.
+Some examples are: 
+-AVG()
+eg SELECT ROUND(AVG(replacement_cost), 2)
+    FROM film;
+-COUNT()
+-MAX()
+-SUM()
+-MIN()
+***Aggregate function only happens in the SELECT clause or HAVING clause
+
+GROUP BY allows us to aggregate columns per some category 
+SELECT category_col, AGG(data_col)
+FROM table
+GROUP BY category_col
+***GROUP BY needs to come after a FROM or WHERE statement
+eg SELECT company, division, SUM(sales)
+FROM finance_table
+GROUP BY company, division
+***IN THE SELECT STATEMENT, COLUMNS MUST HAVE A AGGREGATE FUNCTION OR BE IN THE GROUP BY CLAUSE.
+***If there is a WHERE statement as well as GROUP BY statement, the WHERE statement should not 
+refer to the aggregation result. 
+eg SELECT company, SUM(sales)
+FROM finance_table
+GROUP BY company
+ORDER BY SUM(sales) <-- ORDER BY refered to the aggregate 
+
+---Challenge SIX: GROUP BY---
+1: SELECT staff_id, COUNT(amount)
+FROM payment
+GROUP BY staff_id
+
+2:SELECT rating, ROUND(AVG(replacement_cost), 2) 
+FROM film
+GROUP BY rating
+ORDER BY rating DESC
+
+3: SELECT customer_id, SUM(amount) 
+FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+LIMIT 5
+---Challenge Six End---
+
+***WE CAN NOT USE WHERE TO FILTER BASED OFF AGGREGATE RESULTS, THIS IS BECAUSE
+WHERE IS EXECUTED BEFORE
+
+HAVING allows us to use the aggregate result as a filter along with a GROUP BY statement
+eg SELECT company, SUM(sales)
+FROM finance_table
+WHERE company != 'Google'
+GROUP BY company
+HAVING SUM(sales) > 1000
+
+---Challenge SIX: HAVING---
+1: SELECT customer_id, COUNT(payment)
+FROM payment
+GROUP BY customer_id
+HAVING COUNT(payment) >= 40
+ORDER BY COUNT(payment) DESC
+
+2: SELECT customer_id, SUM(amount)
+FROM payment
+WHERE staff_id = 2
+GROUP BY customer_id
+HAVING SUM(amount) > 100
+---Challenge SIX END---
+
+---ASSESSEMENT TEST 1---
+1: SELECT customer_id, SUM(amount)
+FROM payment
+WHERE staff_id = 2
+GROUP BY customer_id
+HAVING sum(amount) >= 110
+
+2: SELECT COUNT(title)
+FROM film
+WHERE title ILIKE 'J%'
+
+3: SELECT * FROM customer
+WHERE first_name ILIKE 'E%'
+AND address_id < 500
+ORDER BY customer_id DESC
+LIMIT 1
+---ASSESSEMENT TEST 1 END---
