@@ -187,3 +187,29 @@ AND address_id < 500
 ORDER BY customer_id DESC
 LIMIT 1
 ---ASSESSEMENT TEST 1 END---
+
+---SECTION FIVE JOINS---
+AS operator allows you to give a alias
+The AS operator gets executed at the very end of the query. This means we can not use
+the ALIAS inside w WHERE operator
+
+INNER JOIN will result with the set of records that match in  both tables
+SELECT * FROM tableA
+INNER JOIN tableB
+ON talbeA.col_match = tableB.col_match
+***If you just type JOIN it defaults to INNER JOIN
+
+FULL OUTER JOINS just grabs everything
+SELECT * FROM tableA
+FULL OUTER JOIN tableB
+ON tableA.col_match = tableB.col_match
+***If there is no match between the tables, it fills it with NULL
+
+LEFT (OUTER ) JOIN
+A LEFT OUTER JOIN results in the set of records that are in the left table,
+if there are no match with the right table, the results are null.
+SELECT * FROM tableA (this is the left table. ORDER MATTER)
+LEFT JOIN tableB
+ON tableA.col_match = tableB.col_match
+***It grabs anything that is in tableA and also tableA+tableB but not 
+exclusive table B
