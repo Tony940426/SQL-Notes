@@ -213,3 +213,29 @@ LEFT JOIN tableB
 ON tableA.col_match = tableB.col_match
 ***It grabs anything that is in tableA and also tableA+tableB but not 
 exclusive table B
+
+RIGHT (OUTER) JOIN 
+A right join is essentially the same as a LEFT JOIN, except the tables are
+switched (you can still use a LEFT JOIN)
+
+UNION operator is used to combine the result set of two or more SELECT
+statements. It serves to directly concatenate two results together (pasting them together)
+SELECT column_name FROM table1
+UNION 
+SELECT column_name FROM table2
+
+---Challenge SEVEN: jOINS---
+1: SELECT * FROM address
+INNER JOIN customer
+ON address.address_id = customer.address_id
+WHERE district = 'California'
+
+SELECT a.district, c.email FROM customer AS c
+LEFT JOIN address a ON c.address_id = a.address_id
+WHERE a.district = 'California'
+
+2:SELECT film.title, actor.first_name, actor.last_name FROM film
+INNER JOIN film_actor ON film.film_id = film_actor.film_id
+INNER JOIN actor ON film_actor.actor_id = actor.actor_id
+WHERE actor.actor_id = 2
+---Challenge Seven End---
